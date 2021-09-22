@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Calculadora ASCII</title>
+    <title>Índice de contenidos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
@@ -12,103 +12,27 @@
 <div class="container">
 
     <div class="row mt-3">
-        <div class="col">
-            <h1 class="display-4">Calculadora ASCII</h1>
+        <div class="col-8">
+            <h1 class="display-4">Índice de Contenidos</h1>
         </div>
         <div class="col">
-            <h5 class="text-end">IMRTD - 2º FPB IyC - IES Isla de León<br>Profesor: José Tomás Tocino</h5>
+            <h5 class="text-end">FPB IyC - IES Isla de León<br>Profesor: José Tomás Tocino</h5>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col">
-            <p>
-                Para practicar los ejercicios de la Unidad 1 sobre codificación en decimal, binario, hexadecimal y ASCII,
-                escribe en el siguiente formulario el texto que quieras y podrás ver su representación en la tabla.
-            </p>
+            <h5>Instalación y Mantenimiento de Redes de Transmisión de Datos</h5>
+
+            <ul>
+                <li>
+                    <a href="https://josetomastocino.github.io/FPB_IC/IMRTD/Unidad_01/">Unidad 1 - Calculadora ASCII / binario / hexadecimal</a>
+                </li>
+            </ul>
         </div>
     </div>
-
-    <form class="row">
-        <label for="entryString" class="col-form-label col-sm-2">Texto de entrada:</label>
-        <div class="col-sm-10">
-            <input type="text" name="entryString" id="entryString" class="form-control">
-        </div>
-    </form>
-
-    <div class="row mt-3">
-        <div class="col">
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th>Carácter</th>
-                    <th>Decimal</th>
-                    <th>Binario</th>
-                    <th>Hexadecimal</th>
-                </tr>
-                </thead>
-                <tbody id="tableBody">
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
 </div>
 
-<!-- Optional JavaScript; choose one of the two! -->
 
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>-->
-
-<!-- Option 2: Separate Popper and Bootstrap JS -->
-<!--
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
--->
-
-<script>
-    document.getElementById("entryString").addEventListener("input", function(){
-        let theText = this.value.trim();
-
-        if (theText === "")
-            return false;
-
-
-        let tableBody = document.getElementById("tableBody");
-        tableBody.replaceChildren();
-
-        for (let ch of theText)
-        {
-            let charCode = ch.charCodeAt(0);
-            let charCodeBinary = charCode.toString(2);
-
-            while(charCodeBinary.length % 4 !== 0)
-                charCodeBinary = "0" + charCodeBinary;
-
-            charCodeBinary = charCodeBinary.match(/.{1,4}/g).join(' ');
-
-            let charCodeHex = charCode.toString(16);
-
-            let newRow = tableBody.insertRow();
-
-            newRow.insertCell().appendChild(document.createTextNode(ch));
-
-            let newCell = newRow.insertCell();
-            newCell.classList.add("font-monospace");
-            newCell.appendChild(document.createTextNode(charCode));
-
-            newCell = newRow.insertCell();
-            newCell.classList.add("font-monospace");
-            newCell.appendChild(document.createTextNode(charCodeBinary));
-
-            newCell = newRow.insertCell();
-            newCell.classList.add("font-monospace");
-            newCell.appendChild(document.createTextNode(charCodeHex));
-        }
-
-    });
-
-</script>
 </body>
 </html>

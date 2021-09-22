@@ -74,21 +74,19 @@
         if (theText === "")
             return false;
 
-
         let tableBody = document.getElementById("tableBody");
-        tableBody.replaceChildren();
+        tableBody.replaceChildren(); // Remove all table rows
 
         for (let ch of theText)
         {
             let charCode = ch.charCodeAt(0);
             let charCodeBinary = charCode.toString(2);
+            let charCodeHex = charCode.toString(16);
 
             while(charCodeBinary.length % 4 !== 0)
-                charCodeBinary = "0" + charCodeBinary;
+                charCodeBinary = "0" + charCodeBinary; // left pad with zeroes
 
-            charCodeBinary = charCodeBinary.match(/.{1,4}/g).join(' ');
-
-            let charCodeHex = charCode.toString(16);
+            charCodeBinary = charCodeBinary.match(/.{1,4}/g).join(' '); // add a space every 4 characters
 
             let newRow = tableBody.insertRow();
 
