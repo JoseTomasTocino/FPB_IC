@@ -69,13 +69,13 @@
 
 <script>
     document.getElementById("entryString").addEventListener("input", function(){
+        let tableBody = document.getElementById("tableBody");
+        tableBody.replaceChildren(); // Remove all table rows
+
         let theText = this.value.trim();
 
         if (theText === "")
             return false;
-
-        let tableBody = document.getElementById("tableBody");
-        tableBody.replaceChildren(); // Remove all table rows
 
         for (let ch of theText)
         {
